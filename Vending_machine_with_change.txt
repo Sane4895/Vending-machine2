@@ -20,11 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Vending_machine(clk,rst,in,out,chg);
 input clk,rst;
-input [1:0]in; //00=0rs;01=5rs;10=10rs
+input [1:0]in;                            //00=0rs;01=5rs;10=10rs
 output reg out;
-output reg [1:0] chg;
+output reg [1:0] chg;                    // chg[00]=0rs change;chg[01]=5rs change;chg[10]=10rs chg
 
-parameter s0=2'b00,s1=2'b01,s2=2'b10;
+parameter s0=2'b00,s1=2'b01,s2=2'b10;    //S0:reset state;S1:5rs state;S2:10rs state
 reg [1:0]c_state,n_state;
 always @(posedge clk)
 begin

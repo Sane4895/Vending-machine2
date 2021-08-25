@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   21:34:00 08/25/2021
+// Design Name:   Vending_machine
+// Module Name:   C:/Users/hp/Desktop/verilog_codes/Vendin_machine/vending_machine_tb.v
+// Project Name:  Vendin_machine
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: Vending_machine
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module vending_machine_tb;
+
+	// Inputs
+	reg clk;
+	reg rst;
+	reg [1:0] in;
+
+	// Outputs
+	wire out;
+
+	// Instantiate the Unit Under Test (UUT)
+	Vending_machine uut (
+		.clk(clk), 
+		.rst(rst), 
+		.in(in), 
+		.out(out)
+	);
+
+	initial 
+	begin
+		// Initialize Inputs
+		clk = 0;
+		rst = 1;
+		#6 rst=0;
+		in = 01;
+		#19 in = 10;
+		#10;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+        
+		// Add stimulus here
+
+	end
+   always
+       #5 clk=~clk;
+endmodule
